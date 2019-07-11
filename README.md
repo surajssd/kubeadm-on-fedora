@@ -25,3 +25,17 @@ vagrant ssh c0 -c "sudo /vagrant/master.bash"
 vagrant ssh w0 -c "sudo /vagrant/worker.bash"
 vagrant ssh w1 -c "sudo /vagrant/worker.bash"
 ```
+
+Once all the machines are up and running follow the output commands from the `c0` machine for the cluster to be complete. To access cluster run following commands:
+
+```bash
+vagrant ssh c0
+```
+
+```
+[vagrant@c0 ~]$ kubectl get nodes
+NAME   STATUS   ROLES    AGE     VERSION
+c0     Ready    master   3m58s   v1.15.0
+w0     Ready    <none>   2m9s    v1.15.0
+w1     Ready    <none>   2m17s   v1.15.0
+```
