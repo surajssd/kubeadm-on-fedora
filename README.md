@@ -18,8 +18,10 @@ cd kubeadm-on-fedora
 vagrant up
 ```
 
-Once the machines are up run following commands:
+Once the machines are up run following commands, all in different tabs:
 
 ```bash
-vagrant ssh c0 -c "/vagrant/master.bash"
+vagrant ssh c0 -c "sudo /vagrant/master.bash"
+vagrant ssh w0 -c "sudo /vagrant/worker.bash"
+vagrant ssh w1 -c "sudo /vagrant/worker.bash"
 ```
