@@ -11,8 +11,8 @@ source "${root}/common.bash"
 
 function copy_kubeconfig() {
   mkdir -p "${1}"/.kube
-  sudo cp -i /etc/kubernetes/admin.conf "${1}"/.kube/config
-  chmod +rw "${1}"/.kube/config
+  cp -i /etc/kubernetes/admin.conf "${1}"/.kube/config
+  chmod a+rw -R "${1}"/.kube/
 }
 
 setup_fedora_machine
