@@ -4,6 +4,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# all the steps are from the following docs:
+# Installing kubeadm https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+# Creating a single control-plane cluster with kubeadm https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 function setup_fedora_machine() {
   # Set SELinux in permissive mode (effectively disabling it)
   setenforce 0
