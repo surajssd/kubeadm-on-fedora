@@ -14,13 +14,13 @@ function setup_fedora_machine() {
 
   # install docker from fedora 29
   sudo dnf config-manager \
-  --add-repo \
-  https://download.docker.com/linux/fedora/docker-ce.repo
+    --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
   sudo dnf install -y --releasever=29 docker-ce docker-ce-cli containerd.io
   systemctl enable --now docker
 
   # add the google's yum repo
-  cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+  cat <<EOF >/etc/yum.repos.d/kubernetes.repo
   [kubernetes]
   name=Kubernetes
   baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
@@ -32,7 +32,7 @@ EOF
   yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
   # enable routing
-  cat <<EOF >  /etc/sysctl.d/k8s.conf
+  cat <<EOF >/etc/sysctl.d/k8s.conf
   net.bridge.bridge-nf-call-ip6tables = 1
   net.bridge.bridge-nf-call-iptables = 1
 EOF
